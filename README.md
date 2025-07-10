@@ -1,0 +1,35 @@
+# Nekro 博查搜索插件
+
+这是一个为 Nekro Agent 开发的插件，通过调用[博查 AI Web Search API](https://www.bochaai.com/) 实现联网搜索功能，以获取准确、实时的搜索结果。
+
+## 功能特性
+
+- **直接高效**：直接调用博查搜索 API，无需经过大型语言模型进行二次处理，响应速度更快，结果更直接。
+- **配置简单**：仅需配置 API Key 和返回结果数量即可使用。
+- **结果清晰**：将搜索结果格式化为包含标题、链接和摘要的列表，方便阅读。
+
+## 配置
+
+要在 Nekro Agent 中使用此插件，您需要在插件配置页面填入以下信息：
+
+1.  **API_KEY**: 您在博查 AI 官网获取的 API 密钥（以 `sk-` 开头）。
+2.  **SEARCH_RESULT_COUNT**: 希望返回的搜索结果数量，默认为 5，可在 1 到 10 之间调整。
+
+## 安装
+
+1.  将本项目克隆或下载到本地。
+2.  将 `nekro_plugin_bocha_search` 文件夹放入 Nekro Agent 的 `plugins` 目录中。
+3.  重启 Nekro Agent。
+4.  在插件市场页面启用“博查 AI 搜索”插件，并完成上述配置。
+
+## 使用
+
+配置完成后，当您向 Agent 提出需要访问互联网才能回答的问题时，它将自动调用此插件进行搜索。您也可以通过 `/exec` 指令直接测试：
+
+```
+/exec nekro_plugin_bocha_search.search_ai(query="天空为什么是蓝色的？")
+```
+
+## 鸣谢
+
+本项目 fork 自 [wess09/nekro-plugin-kimi-search](https://github.com/wess09/nekro-plugin-kimi-search)，并在此基础上进行了完全重构以适配博查 API。
