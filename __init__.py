@@ -4,11 +4,11 @@ from nekro_agent.core import logger
 from nekro_agent.services.plugin.base import ConfigBase, NekroPlugin, SandboxMethodType
 from pydantic import Field
 
-logger.info("正在加载博查 AI 搜索插件 (nekro_plugin_bocha_search)...")
+logger.info("正在加载博查搜索插件 (nekro_plugin_bocha_search)...")
 
 # 插件元信息
 plugin = NekroPlugin(
-    name="博查 AI 搜索",
+    name="博查搜索",
     module_name="nekro_plugin_bocha_search",
     description="通过博查 Web Search API 进行联网搜索",
     version="2.0.0",
@@ -45,8 +45,8 @@ class BochaConfig(ConfigBase):
 config: BochaConfig = plugin.get_config(BochaConfig)
 
 
-@plugin.mount_sandbox_method(SandboxMethodType.AGENT, name="搜索", description="使用博查AI进行联网搜索并返回结果")
-async def search_ai(_ctx: AgentCtx, query: str) -> str:
+@plugin.mount_sandbox_method(SandboxMethodType.AGENT, name="搜索", description="使用博查进行联网搜索并返回结果")
+async def search(_ctx: AgentCtx, query: str) -> str:
     """根据用户提供的关键词进行联网搜索，并返回格式化后的结果。
 
     Args:
