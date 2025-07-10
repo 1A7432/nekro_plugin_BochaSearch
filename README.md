@@ -27,5 +27,5 @@
 配置完成后，当您向 Agent 提出需要访问互联网才能回答的问题时，它将自动调用此插件进行搜索。您也可以通过 `/exec` 指令直接测试：
 
 ```
-/exec nekro_plugin_bocha_search.search(query="天空为什么是蓝色的？")
+/exec search(query="天空为什么是蓝色的？")
 ```
